@@ -1,0 +1,94 @@
+<br/>
+<div class="container">
+    <div class="card card-info">
+        <div class="card-heading">
+            Reactive Forms
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <form [formGroup]="employeeForm">
+                    <div class="form-group col-md-6" [ngClass]="{'has-error':(!employeeForm.get('firstName').valid  && employeeForm.get('firstName').touched)}">
+                        <label class="control-label">First Name</label>
+                        <input type="text" class="form-control" formControlName="firstName"/>
+                        <span class="help-block" *ngIf="(employeeForm.get('firstName').errors && employeeForm.get('firstName').touched)">
+                            <span *ngIf="employeeForm.get('firstName').errors['required']">
+                                First name is required 
+                            </span>
+                            <span *ngIf="employeeForm.get('firstName').errors['minlength']">
+                                Minlength is 3 
+                            </span>
+                        </span>
+                    </div>
+
+                    <div class="form-group col-md-6" [ngClass]="{'has-error':(!employeeForm.get('lastName').valid  && employeeForm.get('lastName').touched)}">
+                        <label class="control-label">Last Name</label>
+                        <input type="text" class="form-control" formControlName="lastName"/>
+                        <span class="help-block" *ngIf="(employeeForm.get('lastName').errors && employeeForm.get('lastName').touched)">
+                            <span *ngIf="employeeForm.get('lastName').errors['minlength']">
+                                Minlength is 3 
+                            </span>
+                            <span *ngIf="employeeForm.get('lastName').errors['maxlength']">
+                                Max length is 8 
+                            </span>
+                        </span>
+                    </div>
+
+                    <div class="form-group col-md-6" [ngClass]="{'has-error':(!employeeForm.get('email').valid  && employeeForm.get('email').touched)}">
+                        <label class="control-label">email</label>
+                        <input type="text" class="form-control" formControlName="email"/>
+                        <span class="help-block" *ngIf="(employeeForm.get('email').errors && employeeForm.get('email').touched)">
+                            <span *ngIf="employeeForm.get('email').errors['required']">
+                                Email is required 
+                            </span>
+                            <span *ngIf="employeeForm.get('email').errors['pattern]">
+                                Enter valid email 
+                            </span>
+                        </span>
+                    </div>
+
+                    <div class="form-group col-md-6" [ngClass]="{'has-error':(!employeeForm.get('phone').valid)}">
+                        <label class="control-label">phone</label>
+                        <input type="text" class="form-control" formControlName="phone"/>
+                        <span class="help-block" *ngIf="(employeeForm.get('phone').errors)">
+                            <span *ngIf="employeeForm.get('phone').errors['required']">
+                                phone is required 
+                            </span>
+                        </span>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">
+                                Notification
+                            </label>
+                            <div class="col-md-10">
+                                <label class="radio-inline">
+                                    <input type="radio" value="phone" formControlName="Notification" (click)="setNotification('phone')"/>
+                                    Phone
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" value="email" formControlName="Notification" (click)="setNotification('email')"/>
+                                    Email
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6" [ngClass]="{'has-error':(!employeeForm.get('rating').valid  && employeeForm.get('rating').touched)}">
+                        <label class="control-label">Rating</label>
+                        <input type="text" class="form-control" formControlName="rating"/>
+                        <span class="help-block" *ngIf="(employeeForm.get('rating').errors && employeeForm.get('rating').touched)">
+                            <span *ngIf="employeeForm.get('rating').errors['required']">
+                                Rating is required 
+                            </span>
+                            <span *ngIf="employeeForm.get('rating').errors['range']">
+                                Rating should be bewteen 1 and 5
+                            </span>
+                        </span>
+                    </div>
+
+                </form>
+            </div>
+            <button type="submit" class="btn btn-success" [disabled]="!employeeForm.valid">submit</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="card">
+    <div class="card-heading">
+        <h2>Profile</h2>
+    </div>
+    <div class="card-body">
+        <h1>Hi {{userInfo.name}}</h1>
+        <h1>Your role is {{userInfo.role}}</h1>
+        <h1>Your email is {{userInfo.email}}</h1>
+        <h1>Permission is {{userInfo.role === "Admin"?"YOu have access to view User":"You can only view your profile"}}</h1>
+        <div *ngIf="userInfo.role === 'Admin'">
+            <button class="btn btn-danger" [routerLink]="['/userlist']">View Users</button>
+        </div><br/>
+        <button class="btn btn-danger" (click)="logoutUser()">Logout</button>
+    </div>
+</div>

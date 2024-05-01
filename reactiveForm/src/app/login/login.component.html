@@ -1,0 +1,35 @@
+<hr/>
+<div class="container">
+    <div class="card">
+        <div class="card-heading">
+            <h2>Login Forms</h2>
+        </div>
+        <div class="card-body">
+            <h2 style="color: red;">{{loginError}}</h2>
+            <form #form = "ngForm" (submit)="submitForm(form)">
+
+                <div class="row">
+                    <div class="form-group col-md-6" [class.text-danger]="mail.invalid && mail.dirty">
+                        <label for="email" class="control-label">
+                            Email
+                        </label>
+                        <input type="text" id="email" class="form-control" name="email" [(ngModel)]="myEmployee.email" #mail="ngModel" pattern="^([a-zA-Z0-9]+)@([a-zA-Z0-9]+)\.([a-zA-Z0-9]{2,5})$"/>
+                        <div class="alert alert-danger" *ngIf="mail.invalid  && mail.dirty">Please enter valid email</div>
+                    </div>
+
+                    <div class="form-group col-md-6" [class.text-danger]="pwd.invalid && pwd.dirty">
+                        <label for="password" class="control-label">
+                            Password
+                        </label>
+                        <input type="text" id="password" class="form-control" name="password" [(ngModel)]="myEmployee.password" #pwd="ngModel" minlength="8"/>
+                        <div class="alert alert-danger" *ngIf="pwd.invalid  && pwd.dirty">min length of password is 8</div>
+                    </div>
+                    
+                </div><br/>
+
+                <button class="btn btn-info" type="submit">Login</button>
+                
+            </form>
+        </div>
+    </div>
+</div>

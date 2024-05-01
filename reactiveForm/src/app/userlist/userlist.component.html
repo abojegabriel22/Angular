@@ -1,0 +1,29 @@
+<div class="card">
+    <div class="card-heading">
+        <h2>Users</h2>
+        <button class="btn btn-danger" (click)="logoutUser()">Logout</button>&nbsp;
+        <button class="btn btn-danger" [routerLink]="['/profile']">Profile</button>
+    </div>
+    <div class="card-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Role</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of userList">
+                    <td>{{data._id}}</td>
+                    <td>{{data.name}}</td>
+                    <td>{{data.email}}</td>
+                    <td>{{data.phone}}</td>
+                    <td>{{data.role}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+{
+  "employee": [
+    {
+      "id": "9422",
+      "FirstName": "Aboj",
+      "lastName": "gabriel",
+      "email": "abojejunior@gmail.com",
+      "pass": "12345678",
+      "clang": "Node"
+    },
+    {
+      "id": "5ffb",
+      "FirstName": "aboje",
+      "lastName": "gabriel",
+      "email": "abojejunior@gmail.com",
+      "pass": "12345678",
+      "clang": "Node"
+    }
+  ]
+}
