@@ -21,7 +21,7 @@ import { UserService } from './userlist/uerlist.service';
     LoginComponent,
     HeaderComponent,
     ProfileComponent,
-    UserlistComponent,
+    UserlistComponent
   ],
   imports: [
     BrowserModule,
